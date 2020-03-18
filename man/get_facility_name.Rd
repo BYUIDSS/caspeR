@@ -10,8 +10,7 @@ get_facility_name(text)
 \item{object}{requires a character string (text) from the scrapped pdf}
 
 \item{details}{may want to save as an object with the same name as shown in the example
-below as these functions are needed to build a table (see \code{\link{get_table_info_old}
-})}
+below as these functions are needed to build a table (see \code{get_table_info_old})}
 }
 \value{
 returns the Facility Name from the CASPER reports
@@ -21,8 +20,9 @@ This function can be used to pull the Facility Name off the pdfs, which is requi
 building the table (see \code{get_table_info_old}).
 }
 \examples{
+\dontrun{
 raw_text <- pdf_text("yourpdf.pdf")
 
-Facility_Name <- get_facility_name(raw_text)
-
+facility_name <- get_facility_name(raw_text)
+}
 }

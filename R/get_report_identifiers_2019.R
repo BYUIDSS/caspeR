@@ -6,14 +6,14 @@
 #' @param object requires a character string (text) from the scrapped pdf
 #' @return returns the Facility ID from the CASPER reports
 #' @param details may want to save as an object with the same name as shown in the example
-#'     below as these functions are needed to build a table (see \code{\link{get_table_info_old}
-#'     })
+#'     below as these functions are needed to build a table (see \code{get_table_info_old})
 #'
 #' @examples
+#' \dontrun{
 #' raw_text <- pdf_text("yourpdf.pdf")
 #'
-#' Facility_ID <- get_facility_id(raw_text)
-#'
+#' facility_id <- get_facility_id(raw_text)
+#' }
 #' @export
 
 get_facility_id <- function(text){
@@ -33,14 +33,14 @@ get_facility_id <- function(text){
 #' @param object requires a character string (text) from the scrapped pdf
 #' @return returns the CCN from the CASPER reports
 #' @param details may want to save as an object with the same name as shown in the example
-#'     below as these functions are needed to build a table (see \code{\link{get_table_info_old}
-#'     })
+#'     below as these functions are needed to build a table (see \code{get_table_info_old})
 #'
 #' @examples
+#' \dontrun{
 #' raw_text <- pdf_text("yourpdf.pdf")
 #'
-#' CCN <- get_CCN(raw_text)
-#'
+#' ccn <- get_CCN(raw_text)
+#' }
 #' @export
 
 get_CCN <- function(text){
@@ -58,14 +58,14 @@ get_CCN <- function(text){
 #' @param object requires a character string (text) from the scrapped pdf
 #' @return returns the Facility Name from the CASPER reports
 #' @param details may want to save as an object with the same name as shown in the example
-#'     below as these functions are needed to build a table (see \code{\link{get_table_info_old}
-#'     })
+#'     below as these functions are needed to build a table (see \code{get_table_info_old})
 #'
 #' @examples
+#' \dontrun{
 #' raw_text <- pdf_text("yourpdf.pdf")
 #'
-#' Facility_Name <- get_facility_name(raw_text)
-#'
+#' facility_name <- get_facility_name(raw_text)
+#' }
 #' @export
 
 get_facility_name <- function(text){
@@ -86,14 +86,14 @@ get_facility_name <- function(text){
 #' @param object requires a character string (text) from the scrapped pdf
 #' @return returns the Report Period from the 2019 CASPER reports
 #' @param details may want to save as an object with the same name as shown in the example
-#'     below as these functions are needed to build a table (see \code{\link{get_table_info_old}
-#'     })
+#'     below as these functions are needed to build a table (see \code{get_table_info_old})
 #'
 #' @examples
+#' \dontrun{
 #' raw_text <- pdf_text("yourpdf.pdf")
 #'
-#' Report_Period <- get_report_period(raw_text)
-#'
+#' report_pd <- get_report_period(raw_text)
+#' }
 #' @export
 
 get_report_period <- function(text){
@@ -114,14 +114,14 @@ get_report_period <- function(text){
 #' @param object requires a character string (text) from the scrapped pdf
 #' @return returns the Comparison Group from the 2019 CASPER reports
 #' @param details may want to save as an object with the same name as shown in the example
-#'     below as these functions are needed to build a table (see \code{\link{get_table_info_old}
-#'     })
+#'     below as these functions are needed to build a table (see \code{get_table_info_old})
 #'
 #' @examples
+#' \dontrun{
 #' raw_text <- pdf_text("yourpdf.pdf")
 #'
-#' Comparison_Group <- get_CCN(raw_text)
-#'
+#' comp_group <- get_comparison_group(raw_text)
+#' }
 #' @export
 
 get_comparison_group <- function(text){
@@ -140,14 +140,14 @@ get_comparison_group <- function(text){
 #' @param object requires a character string (text) from the scrapped pdf
 #' @return returns the Run Date from the CASPER reports
 #' @param details may want to save as an object with the same name as shown in the example
-#'     below as these functions are needed to build a table (see \code{\link{get_table_info_old}
-#'     })
+#'     below as these functions are needed to build a table (see \code{get_table_info_old})
 #'
 #' @examples
+#' \dontrun{
 #' raw_text <- pdf_text("yourpdf.pdf")
 #'
-#' Run_Date <- get_run_date(raw_text)
-#'}
+#' run_date <- get_run_date(raw_text)
+#' }
 #' @export
 
 get_run_date <- function(text){
@@ -166,14 +166,14 @@ get_run_date <- function(text){
 #' @param object requires a character string (text) from the scrapped pdf
 #' @return returns the city and state from the CASPER reports
 #' @param details may want to save as an object with the same name as shown in the example
-#'     below as these functions are needed to build a table (see \code{\link{get_table_info_old}
-#'     })
+#'     below as these functions are needed to build a table (see \code{get_table_info_old})
 #'
 #' @examples
+#' \dontrun{
 #' raw_text <- pdf_text("yourpdf.pdf")
 #'
-#' City_State <- get_city_and_state(raw_text)
-#'
+#' citystate <- get_city_and_state(raw_text)
+#' }
 #' @export
 
 get_city_and_state <- function(text){
@@ -192,14 +192,14 @@ get_city_and_state <- function(text){
 #' @param object requires a character string (text) from the scrapped pdf
 #' @return returns the Version Number from the CASPER reports
 #' @param details may want to save as an object with the same name as shown in the example
-#'     below as these functions are needed to build a table (see \code{\link{get_table_info_old}
-#'     })
+#'     below as these functions are needed to build a table (see \code{get_table_info_old})
 #'
 #' @examples
+#' \dontrun{
 #' raw_text <- pdf_text("yourpdf.pdf")
 #'
-#' Version_Number <- get_version_number(raw_text)
-#'
+#' vnumber <- get_version_number(raw_text)
+#' }
 #' @export
 
 get_version_number <- function(text){

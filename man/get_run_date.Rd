@@ -10,8 +10,7 @@ get_run_date(text)
 \item{object}{requires a character string (text) from the scrapped pdf}
 
 \item{details}{may want to save as an object with the same name as shown in the example
-below as these functions are needed to build a table (see \code{\link{get_table_info_old}
-})}
+below as these functions are needed to build a table (see \code{get_table_info_old})}
 }
 \value{
 returns the Run Date from the CASPER reports
@@ -19,4 +18,11 @@ returns the Run Date from the CASPER reports
 \description{
 This function can be used to pull the Run Date off the pdfs, which is required for
 building the table (see \code{get_table_info_old}).
+}
+\examples{
+\dontrun{
+raw_text <- pdf_text("yourpdf.pdf")
+
+run_date <- get_run_date(raw_text)
+}
 }

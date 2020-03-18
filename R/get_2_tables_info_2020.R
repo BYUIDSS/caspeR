@@ -2,8 +2,8 @@
 #'
 #' This function is to be used for the pdf reports from 2020 that have two tables in the
 #' pdf (Jan 2020 reports have one table but Feb 2020 reports have two). If the report being
-#' scrapped has one table see \code{\link{get_1_table_info_2020}}. The arguments for
-#' this function are the same as the outputs for \code{\link{get_table_info_old}} and can be
+#' scrapped has one table see \code{get_1_table_info_2020}. The arguments for
+#' this function are the same as the outputs for \code{get_table_info_old} and can be
 #' obtained from the following functions: \code{get_facility_id}, \code{get_CNN}, \code{get_
 #' facility_name}, \code{get_report_period}, \code{get_comparison_group}, \code{get_run_date
 #' }, \code{get_city_and_state},\code{get_version_number}. User should also be aware that
@@ -18,17 +18,23 @@
 #'    mentioned above to get the numbers from the pdf and assign variable names to their
 #'    outputs
 #' @examples
+#' \dontrun{
 #'    raw_text <- pdf_text("yourpdf.pdf")
-#'    get_table_info_old(raw_text, "MS0004", "123456", "Name of Facility", "09/01/2019 - 02
-#'    /31/2020", "10/01/2019 - 03/31/2020", "11/03/2019", "Rexburg, ID","3.02")
+#'    get_2_tables_info_2020(raw_text, Facility_ID = "MS0004", CCN = "123456", Facility_Name
+#'    = "Name of Facility", Report_Period = "09/01/2019 - 02/31/2020", Comparison_Group = "10
+#'    /01/2019 - 03/31/2020", Run_Date = "11/03/2019", City_State = "Rexburg, ID",Version_Num
+#'    ber = "3.02")
 #'
 #'    raw_text <- pdf_text("yourpdf.pdf")
-#'    Facility_ID <- get_facility_id(raw_text)
-#'    CNN <- get_CNN(raw_text)
+#'    facility_id <- get_facility_id(raw_text)
+#'    ccn <- get_CCN(raw_text)
+#'    facility_name <- get_facility_name(raw_text)
+#'    report_pd <- get_report_period_2020(raw_text)
 #'
-#'    get_table_info_old(raw_text, Facility_ID, CCN, Facility_Name, Report_Period, Comparisio
-#'    n_Group, Run_Date, City_State, Version_Number)
-#'
+#'    get_2_tables_info_2020(raw_text, Facility_ID = facility_id, CCN = ccn, Facility_Name =
+#'    facility_name, Report_Period = report_pd, Comparision_Group = comp_group, Run_Date =
+#'    run_date, City_State = citystate, Version_Number = vnumber)
+#' }
 #' @export
 
 get_2_tables_info_2020 <- function(text, Facility_ID, CCN, Facility_Name, Report_Period, Comparision_Group, Run_Date, City_State, Version_Number){

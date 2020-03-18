@@ -10,8 +10,7 @@ get_report_period(text)
 \item{object}{requires a character string (text) from the scrapped pdf}
 
 \item{details}{may want to save as an object with the same name as shown in the example
-below as these functions are needed to build a table (see \code{\link{get_table_info_old}
-})}
+below as these functions are needed to build a table (see \code{get_table_info_old})}
 }
 \value{
 returns the Report Period from the 2019 CASPER reports
@@ -23,8 +22,9 @@ building the table (see \code{get_table_info_old}). If it is a 2020 CASPER repor
 2020).
 }
 \examples{
+\dontrun{
 raw_text <- pdf_text("yourpdf.pdf")
 
-Report_Period <- get_report_period(raw_text)
-
+report_pd <- get_report_period(raw_text)
+}
 }

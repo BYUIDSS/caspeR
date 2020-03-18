@@ -37,15 +37,21 @@ ort_period}, \code{get_comparison_group}, \code{get_run_date}, \code{get_city_an
 User should also be aware that all NA's are represented by the word "null"
 }
 \examples{
+\dontrun{
    raw_text <- pdf_text("yourpdf.pdf")
-   get_table_info_old(raw_text, "MS0004", "123456", "Name of Facility", "09/01/2019 - 02
-   /31/2020", "10/01/2019 - 03/31/2020", "11/03/2019", "Rexburg, ID","3.02")
+   get_table_info_old(raw_text, Facility_ID = "MS0004", CCN = "123456", Facility_Name =
+   "Name of Facility", Report_Period = "09/01/2019 - 02/31/2020", Comparison_Group = "10
+   /01/2019 - 03/31/2020", Run_Date = "11/03/2019", City_State = "Rexburg, ID",Version_Num
+   ber = "3.02")
 
    raw_text <- pdf_text("yourpdf.pdf")
-   Facility_ID <- get_facility_id(raw_text)
-   CNN <- get_CNN(raw_text)
+   facility_id <- get_facility_id(raw_text)
+   ccn <- get_CCN(raw_text)
+   facility_name <- get_facility_name(raw_text)
+   report_pd <- get_report_period(raw_text)
 
-   get_table_info_old(raw_text, Facility_ID, CCN, Facility_Name, Report_Period, Comparisio
-   n_Group, Run_Date, City_State, Version_Number)
-
+   get_table_info_old(raw_text, Facility_ID = facility_id, CCN = ccn, Facility_Name =
+   facility_name, Report_Period = report_pd, Comparision_Group = comp_group, Run_Date =
+   run_date, City_State = citystate, Version_Number = vnumber)
+}
 }
