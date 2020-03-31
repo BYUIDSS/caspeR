@@ -21,7 +21,7 @@ Make sure you have all these libraries installed and loaded. You can use this co
 install.packages("pacman")
 pacman::p_load(tidyverse, devtools, caspeR, pdftools, roxygen2,zoo, stringr, glue)
 ```
-If you have any issues with reading in the pdf, make sure you have the right file path, check the working directory ```r getwd()``` 
+If you have any issues with reading in the pdf, make sure you have the right file path, check the working directory ``` getwd()``` 
 
 There is an example pdf in the R file that you can download and use to test the functions. If you are having problems with the file path, you can save the file you're currently working on in the same place you saved the downloaded pdf and go to the Session tab, Set Working Directory, To Source File Location and your pdf should read in. 
 
