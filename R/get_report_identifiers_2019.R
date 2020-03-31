@@ -1,19 +1,23 @@
-#' Pulls the Facility ID from the 2019-2020 CASPER reports
+#' Pulls the facility ID from the 2019-2020 CASPER reports
 #'
-#' This function can be used to pull the Facility ID off the pdfs, which is required for
-#' building the table (see \code{get_table_info_old}).
+#' This function can be used to pull the facility ID off the pdfs, which is required
+#' for building a table (see \code{get_table_info_old()},
+#' \code{get_1_table_info_2020()}, or \code{get_2_tables_info_2020()} for further usage
+#' ).
 #'
 #' @param object requires a character string (text) from the scrapped pdf
-#' @return returns the Facility ID from the CASPER reports
-#' @param details may want to save as an object with the same name as shown in the example
-#'     below as these functions are needed to build a table (see \code{get_table_info_old})
+#' @return returns the facility ID from the CASPER reports as a string
+#' @param details may want to save as an object as shown in the example below in
+#'    preparation for building a table
 #'
 #' @examples
-#' \dontrun{
-#' raw_text <- pdf_text("yourpdf.pdf")
+#' #make sure you have these packages installed and loaded
+#' pacman::p_load(tidyverse, devtools, caspeR, pdftools, roxygen2,zoo, stringr, glue)
 #'
-#' facility_id <- get_facility_id(raw_text)
-#' }
+#' raw_text <- pdf_text("R/caspeR_example.pdf")
+#'
+#' fac_ID <- get_facility_id(raw_text)
+#'
 #' @export
 
 get_facility_id <- function(text){
@@ -27,20 +31,24 @@ get_facility_id <- function(text){
 
 #' Pulls the CCN from the 2019-2020 CASPER reports
 #'
-#' This function can be used to pull the CCN off the pdfs, which is required for
-#' building the table (see \code{get_table_info_old}).
+#' This function can be used to pull the CMS's certification number (CCN) off the pdfs,
+#' which is required for building a table (see \code{get_table_info_old()},
+#' \code{get_1_table_info_2020()}, or \code{get_2_tables_info_2020()} for further usage
+#' ).
 #'
 #' @param object requires a character string (text) from the scrapped pdf
-#' @return returns the CCN from the CASPER reports
-#' @param details may want to save as an object with the same name as shown in the example
-#'     below as these functions are needed to build a table (see \code{get_table_info_old})
+#' @return returns the CCN from the CASPER reports as a string
+#' @param details may want to save as an object as shown in the example below in
+#'    preparation for building a table
 #'
 #' @examples
-#' \dontrun{
-#' raw_text <- pdf_text("yourpdf.pdf")
+#' #make sure you have these packages installed and loaded
+#' pacman::p_load(tidyverse, devtools, caspeR, pdftools, roxygen2,zoo, stringr, glue)
+#'
+#' raw_text <- pdf_text("R/caspeR_example.pdf")
 #'
 #' ccn <- get_CCN(raw_text)
-#' }
+#'
 #' @export
 
 get_CCN <- function(text){
@@ -50,22 +58,25 @@ get_CCN <- function(text){
   return(CCN)
 }
 
-#' Pulls the Facility Name from the 2019-2020 CASPER reports
+#' Pulls the facility name from the 2019-2020 CASPER reports
 #'
-#' This function can be used to pull the Facility Name off the pdfs, which is required for
-#' building the table (see \code{get_table_info_old}).
+#' This function can be used to pull the facility ID off the pdfs, which is required
+#' for building a table (see \code{get_table_info_old()}, \code{get_1_table_info_2020
+#' ()}, or \code{get_2_tables_info_2020()} for further usage).
 #'
 #' @param object requires a character string (text) from the scrapped pdf
 #' @return returns the Facility Name from the CASPER reports
-#' @param details may want to save as an object with the same name as shown in the example
-#'     below as these functions are needed to build a table (see \code{get_table_info_old})
+#' @param details may want to save as an object as shown in the example below in
+#'    preparation for building a table (see \code{get_table_info_old})
 #'
 #' @examples
-#' \dontrun{
-#' raw_text <- pdf_text("yourpdf.pdf")
+#' #make sure you have these packages installed and loaded
+#' pacman::p_load(tidyverse, devtools, caspeR, pdftools, roxygen2,zoo, stringr, glue)
 #'
-#' facility_name <- get_facility_name(raw_text)
-#' }
+#' raw_text <- pdf_text("R/caspeR_example.pdf")
+#'
+#' fac_name <- get_facility_name(raw_text)
+#'
 #' @export
 
 get_facility_name <- function(text){
@@ -76,24 +87,28 @@ get_facility_name <- function(text){
   return(Facility_Name)
 }
 
-#' Pulls the Report Period ONLY from the 2019 CASPER reports
+#' Pulls the report period ONLY for the 2019 CASPER reports
 #'
-#' This function can be used to pull the Report Period off the pdfs, which is required for
-#' building the table (see \code{get_table_info_old}). If it is a 2020 CASPER report
-#' \code{get_report_period_2020} should be used (the pdf date format changed from 2019 to
-#' 2020).
+#' This function can be used to pull the report period off the 2019 pdfs, which is
+#' required for building a table (see \code{get_table_info_old()},
+#' \code{get_1_table_info_2020()}, or \code{get_2_tables_info_2020()} for further usage
+#' ).If it is a 2020 CASPER report \code{get_report_period_2020()} should be used (the
+#' pdf date format changed from 2019 to 2020).
 #'
 #' @param object requires a character string (text) from the scrapped pdf
-#' @return returns the Report Period from the 2019 CASPER reports
-#' @param details may want to save as an object with the same name as shown in the example
-#'     below as these functions are needed to build a table (see \code{get_table_info_old})
+#' @return returns the report period date range from the 2019 CASPER reports as a
+#'    string
+#' @param details may want to save as an object as shown in the example below in
+#'    preparation for building a table
 #'
 #' @examples
-#' \dontrun{
-#' raw_text <- pdf_text("yourpdf.pdf")
+#' #make sure you have these packages installed and loaded
+#' pacman::p_load(tidyverse, devtools, caspeR, pdftools, roxygen2,zoo, stringr, glue)
+#'
+#' raw_text <- pdf_text("R/caspeR_example.pdf")
 #'
 #' report_pd <- get_report_period(raw_text)
-#' }
+#'
 #' @export
 
 get_report_period <- function(text){
@@ -104,24 +119,27 @@ get_report_period <- function(text){
   return(Report_Period)
 }
 
-#' Pulls the Comparison Group ONLY from the 2019 CASPER reports
+#' Pulls the comparison group ONLY from the 2019 CASPER reports
 #'
-#' This function can be used to pull the Comparison Group off the pdfs, which is required for
-#' building the table (see \code{get_table_info_old}). If it is a 2020 CASPER report
-#' \code{get_report_period_2020} should be used (the pdf date format changed from 2019 to
-#' 2020).
+#' This function can be used to pull the comparison group date range off the 2019 pdfs,
+#' which is required for building a table (see \code{get_table_info_old()},
+#' \code{get_1_table_info_2020()}, or \code{get_2_tables_info_2020()} for further usage
+#' ). If it is a 2020 CASPER report \code{get_comparison_group_2020()} should be used
+#' (the pdf date format changed from 2019 to 2020).
 #'
 #' @param object requires a character string (text) from the scrapped pdf
-#' @return returns the Comparison Group from the 2019 CASPER reports
-#' @param details may want to save as an object with the same name as shown in the example
-#'     below as these functions are needed to build a table (see \code{get_table_info_old})
+#' @return returns the comparison group from the 2019 CASPER reports as a string
+#' @param details may want to save as an object as shown in the example below in
+#' preparation for building a table
 #'
 #' @examples
-#' \dontrun{
-#' raw_text <- pdf_text("yourpdf.pdf")
+#' #make sure you have these packages installed and loaded
+#' pacman::p_load(tidyverse, devtools, caspeR, pdftools, roxygen2,zoo, stringr, glue)
+#'
+#' raw_text <- pdf_text("R/caspeR_example.pdf")
 #'
 #' comp_group <- get_comparison_group(raw_text)
-#' }
+#'
 #' @export
 
 get_comparison_group <- function(text){
@@ -132,22 +150,26 @@ get_comparison_group <- function(text){
   return(Comparision_Group)
 }
 
-#' Pulls the Run Date from the 2019-2020 CASPER reports
+#' Pulls the run date from the 2019-2020 CASPER reports
 #'
-#' This function can be used to pull the Run Date off the pdfs, which is required for
-#' building the table (see \code{get_table_info_old}).
+#' This function can be used to pull the run date off the pdfs, which is required
+#' for building a table (see \code{get_table_info_old()},
+#' \code{get_1_table_info_2020()}, or \code{get_2_tables_info_2020()} for further usage
+#' ).
 #'
 #' @param object requires a character string (text) from the scrapped pdf
-#' @return returns the Run Date from the CASPER reports
-#' @param details may want to save as an object with the same name as shown in the example
-#'     below as these functions are needed to build a table (see \code{get_table_info_old})
+#' @return returns the run date from the CASPER reports as a string
+#' @param details may want to save as an object as shown in the example below in
+#'    preparation for building a table
 #'
 #' @examples
-#' \dontrun{
-#' raw_text <- pdf_text("yourpdf.pdf")
+#' #make sure you have these packages installed and loaded
+#' pacman::p_load(tidyverse, devtools, caspeR, pdftools, roxygen2,zoo, stringr, glue)
 #'
-#' run_date <- get_run_date(raw_text)
-#' }
+#' raw_text <- pdf_text("R/caspeR_example.pdf")
+#'
+#' rundate <- get_run_date(raw_text)
+#'
 #' @export
 
 get_run_date <- function(text){
@@ -158,22 +180,26 @@ get_run_date <- function(text){
   return(Run_Date)
 }
 
-#' Pulls the City and State from the 2019-2020 CASPER reports
+#' Pulls the city and state from the 2019-2020 CASPER reports
 #'
-#' This function can be used to pull the City and State off the pdfs, which is required for
-#' building the table (see \code{get_table_info_old}).
+#' This function can be used to pull the city and state the facility are located in off
+#' the pdfs, which is required for building a table (see \code{get_table_info_old()},
+#' \code{get_1_table_info_2020()}, or \code{get_2_tables_info_2020()} for further usage
+#' ).
 #'
 #' @param object requires a character string (text) from the scrapped pdf
-#' @return returns the city and state from the CASPER reports
-#' @param details may want to save as an object with the same name as shown in the example
-#'     below as these functions are needed to build a table (see \code{get_table_info_old})
+#' @return returns the city and state from the CASPER reports as a string
+#' @param details may want to save as an object as shown in the example below in
+#'    preparation for building a table
 #'
 #' @examples
-#' \dontrun{
-#' raw_text <- pdf_text("yourpdf.pdf")
+#' #make sure you have these packages installed and loaded
+#' pacman::p_load(tidyverse, devtools, caspeR, pdftools, roxygen2,zoo, stringr, glue)
+#'
+#' raw_text <- pdf_text("R/caspeR_example.pdf")
 #'
 #' citystate <- get_city_and_state(raw_text)
-#' }
+#'
 #' @export
 
 get_city_and_state <- function(text){
@@ -184,22 +210,26 @@ get_city_and_state <- function(text){
   return(City_State)
 }
 
-#' Pulls the Version Number from the 2019-2020 CASPER reports
+#' Pulls the version number from the 2019-2020 CASPER reports
 #'
-#' This function can be used to pull the Version Number off the pdfs, which is required for
-#' building the table (see \code{get_table_info_old}).
+#' This function can be used to pull the report's version number off the pdfs, which is
+#' required for building a table (see \code{get_table_info_old()},
+#' \code{get_1_table_info_2020()}, or \code{get_2_tables_info_2020()} for further usage
+#' ).
 #'
 #' @param object requires a character string (text) from the scrapped pdf
-#' @return returns the Version Number from the CASPER reports
-#' @param details may want to save as an object with the same name as shown in the example
-#'     below as these functions are needed to build a table (see \code{get_table_info_old})
+#' @return returns the version number from the CASPER reports as a string
+#' @param details may want to save as an object as shown in the example below in
+#'    preparation for building a table
 #'
 #' @examples
-#' \dontrun{
-#' raw_text <- pdf_text("yourpdf.pdf")
+#' #make sure you have these packages installed and loaded
+#' pacman::p_load(tidyverse, devtools, caspeR, pdftools, roxygen2,zoo, stringr, glue)
+#'
+#' raw_text <- pdf_text("R/caspeR_example.pdf")
 #'
 #' vnumber <- get_version_number(raw_text)
-#' }
+#'
 #' @export
 
 get_version_number <- function(text){

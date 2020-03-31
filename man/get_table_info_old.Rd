@@ -17,41 +17,76 @@ get_table_info_old(
 )
 }
 \arguments{
-\item{object}{requires character strings, the raw_text from the CASPER pdf for the
-following: Facility_ID, CCN, Facility_Name, Report_Period, Comparision_Group,
-Run_Date, City_State, and the Version_Number}
+\item{Facility_ID}{Facility's ID number in a string format, ex: "LC0011535", see
+\code{get_facility_id()}}
+
+\item{CCN}{CMS's certification number in a string format, ex: "L002.03", see
+\code{get_CNN()}}
+
+\item{Facility_Name}{Facility's name in string format, ex: "John's Fruit Stand", see
+\code{get_facility_name()}}
+
+\item{Report_Period}{The report period put in string format, month/day/year, ex: "04
+/01/19 - 09/30/19", see \code{get_report_period()}}
+
+\item{Comparision_Group}{The comparison group put in string format, month/day/year,
+ex: "02/02/19 - 07/31/19", see \code{get_comparison_group()}}
+
+\item{Run_Date}{The date that the report was compiled on put in string format, month
+/day/year, ex: "10/06/2019", see \code{get_run_date()}}
+
+\item{City_State}{This is the city and state that the facility is located in put in
+string format, ex: "Richland, WA", see \code{get_city_and_state()}}
+
+\item{Version_Number}{The report version number of the CASPER report in string
+format, ex: "1.01", see \code{get_version_number()}}
 
 \item{details}{the easiest way to use this function is to use the other functions
-mentioned above to get the numbers from the pdf and assign variable names to their
-outputs}
+mentioned above to get the numbers from the pdf and assign variable names to
+their outputs}
+
+\item{object}{requires character strings, the raw_text from the CASPER pdf}
 }
 \value{
-returns the all the information from the data table on the CASPER reports prior to
-2020 as a dataframe in R
+returns the all the information from the data table on the CASPER reports as
+    a dataframe in R
 }
 \description{
-The arguments for this function are the outputs obtained from using the following
-functions: \code{get_facility_id}, \code{get_CNN}, \code{get_facility_name}, \code{get_rep
-ort_period}, \code{get_comparison_group}, \code{get_run_date}, \code{get_city_and_state
-},\code{get_version_number}.
-User should also be aware that all NA's are represented by the word "null"
+This function gets data from all reports in 2019 or earlier and uses the same
+arguments as \code{get_1_table_info_2020()} and \code{get_2_tables_info_2020()}
+other than the Report_Period and the Comparision_Group, see argument details below.
+User should also be aware that all NA's are represented by the word "null".
 }
 \examples{
-\dontrun{
-   raw_text <- pdf_text("yourpdf.pdf")
-   get_table_info_old(raw_text, Facility_ID = "MS0004", CCN = "123456", Facility_Name =
-   "Name of Facility", Report_Period = "09/01/2019 - 02/31/2020", Comparison_Group = "10
-   /01/2019 - 03/31/2020", Run_Date = "11/03/2019", City_State = "Rexburg, ID",Version_Num
-   ber = "3.02")
+#make sure you have these packages installed and loaded
+pacman::p_load(tidyverse, devtools, caspeR, pdftools, roxygen2,zoo, stringr, glue)
 
-   raw_text <- pdf_text("yourpdf.pdf")
-   facility_id <- get_facility_id(raw_text)
-   ccn <- get_CCN(raw_text)
-   facility_name <- get_facility_name(raw_text)
-   report_pd <- get_report_period(raw_text)
+#there are two ways of using this function, putting the strings in by hand or naming
+them as demonstrated in table1 and table2
 
-   get_table_info_old(raw_text, Facility_ID = facility_id, CCN = ccn, Facility_Name =
-   facility_name, Report_Period = report_pd, Comparision_Group = comp_group, Run_Date =
-   run_date, City_State = citystate, Version_Number = vnumber)
-}
+raw_text <- pdf_text("R/caspeR_example.pdf")
+
+table1 <- get_1_table_info_2020(raw_text, Facility_ID = "LC0011535", CCN = "L002.03"
+, Facility_Name = "John's Fruit Stand", Report_Period = "04/01/19 - 09/30/19",
+Comparision_Group = "02/02/19 - 07/31/19", Run_Date = "10/6/2019", City_State =
+"Richland, WA",Version_Number = "1.01")
+
+View(table1)
+
+fac_ID <- get_facility_id(raw_text)
+ccn <- get_CCN(raw_text)
+fac_name <- get_facility_name(raw_text)
+report_pd <- get_report_period(raw_text)
+comp_group <- get_comparison_group(raw_text)
+rundate <- get_run_date(raw_text)
+citystate <- get_city_and_state(raw_text)
+vnumber <- get_version_number(raw_text)
+
+table2 <- get_1_table_info_2020(raw_text, Facility_ID = fac_ID,
+CCN = ccn, Facility_Name = fac_name, Report_Period = report_pd,
+Comparision_Group = comp_group, Run_Date = rundate, Version_Number = vnumber,
+City_State = citystate)
+
+View(table2)
+
 }

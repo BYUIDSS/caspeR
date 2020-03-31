@@ -2,29 +2,32 @@
 % Please edit documentation in R/get_report_identifiers_2019.R
 \name{get_comparison_group}
 \alias{get_comparison_group}
-\title{Pulls the Comparison Group ONLY from the 2019 CASPER reports}
+\title{Pulls the comparison group ONLY from the 2019 CASPER reports}
 \usage{
 get_comparison_group(text)
 }
 \arguments{
 \item{object}{requires a character string (text) from the scrapped pdf}
 
-\item{details}{may want to save as an object with the same name as shown in the example
-below as these functions are needed to build a table (see \code{get_table_info_old})}
+\item{details}{may want to save as an object as shown in the example below in
+preparation for building a table}
 }
 \value{
-returns the Comparison Group from the 2019 CASPER reports
+returns the comparison group from the 2019 CASPER reports as a string
 }
 \description{
-This function can be used to pull the Comparison Group off the pdfs, which is required for
-building the table (see \code{get_table_info_old}). If it is a 2020 CASPER report
-\code{get_report_period_2020} should be used (the pdf date format changed from 2019 to
-2020).
+This function can be used to pull the comparison group date range off the 2019 pdfs,
+which is required for building a table (see \code{get_table_info_old()},
+\code{get_1_table_info_2020()}, or \code{get_2_tables_info_2020()} for further usage
+). If it is a 2020 CASPER report \code{get_comparison_group_2020()} should be used
+(the pdf date format changed from 2019 to 2020).
 }
 \examples{
-\dontrun{
-raw_text <- pdf_text("yourpdf.pdf")
+#make sure you have these packages installed and loaded
+pacman::p_load(tidyverse, devtools, caspeR, pdftools, roxygen2,zoo, stringr, glue)
+
+raw_text <- pdf_text("R/caspeR_example.pdf")
 
 comp_group <- get_comparison_group(raw_text)
-}
+
 }

@@ -9,20 +9,26 @@ get_comparison_group_2020(text)
 \arguments{
 \item{object}{requires a character string (text) from the scrapped pdf}
 
-\item{details}{may want to save as an object with the same name as shown below as these
-functions are built to go into building a table (see \code{get_1_table_info_2020})}
+\item{details}{may want to save as an object with the same name as shown below as
+these functions are built to go into building a table}
 }
 \value{
-returns the comparison group from the pdf
+returns the comparison group date range from the pdf as a string
 }
 \description{
-The 2020 CASPER reports are slightly different from the 2019 reports (the date format is
-different), so this function specifically scrapes 2020 CASPER reports
+The 2020 CASPER reports are slightly different from the 2019 reports (the date format
+is different), so this function specifically scrapes the comparison group from the
+2020 CASPER reports. This is required for building a table
+(see \code{get_table_info_old()}, \code{get_1_table_info_2020()}, or
+\code{get_2_tables_info_2020()} for further usage). If it is a 2020 CASPER report
+\code{get_report_period_2020()} should be used instead.
 }
 \examples{
-\dontrun{
-    raw_text <- pdf_text("yourpdf.pdf")
+#make sure you have these packages installed and loaded
+pacman::p_load(tidyverse, devtools, caspeR, pdftools, roxygen2,zoo, stringr, glue)
 
-    Comparison_Group <- get_comparison_group_2020(raw_text)
-}
+raw_text <- pdf_text("R/caspeR_example.pdf")
+
+comp_group <- get_comparison_group_2020(raw_text)
+
 }

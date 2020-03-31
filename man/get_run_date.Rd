@@ -2,27 +2,31 @@
 % Please edit documentation in R/get_report_identifiers_2019.R
 \name{get_run_date}
 \alias{get_run_date}
-\title{Pulls the Run Date from the 2019-2020 CASPER reports}
+\title{Pulls the run date from the 2019-2020 CASPER reports}
 \usage{
 get_run_date(text)
 }
 \arguments{
 \item{object}{requires a character string (text) from the scrapped pdf}
 
-\item{details}{may want to save as an object with the same name as shown in the example
-below as these functions are needed to build a table (see \code{get_table_info_old})}
+\item{details}{may want to save as an object as shown in the example below in
+preparation for building a table}
 }
 \value{
-returns the Run Date from the CASPER reports
+returns the run date from the CASPER reports as a string
 }
 \description{
-This function can be used to pull the Run Date off the pdfs, which is required for
-building the table (see \code{get_table_info_old}).
+This function can be used to pull the run date off the pdfs, which is required
+for building a table (see \code{get_table_info_old()},
+\code{get_1_table_info_2020()}, or \code{get_2_tables_info_2020()} for further usage
+).
 }
 \examples{
-\dontrun{
-raw_text <- pdf_text("yourpdf.pdf")
+#make sure you have these packages installed and loaded
+pacman::p_load(tidyverse, devtools, caspeR, pdftools, roxygen2,zoo, stringr, glue)
 
-run_date <- get_run_date(raw_text)
-}
+raw_text <- pdf_text("R/caspeR_example.pdf")
+
+rundate <- get_run_date(raw_text)
+
 }

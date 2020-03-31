@@ -2,27 +2,31 @@
 % Please edit documentation in R/get_report_identifiers_2019.R
 \name{get_city_and_state}
 \alias{get_city_and_state}
-\title{Pulls the City and State from the 2019-2020 CASPER reports}
+\title{Pulls the city and state from the 2019-2020 CASPER reports}
 \usage{
 get_city_and_state(text)
 }
 \arguments{
 \item{object}{requires a character string (text) from the scrapped pdf}
 
-\item{details}{may want to save as an object with the same name as shown in the example
-below as these functions are needed to build a table (see \code{get_table_info_old})}
+\item{details}{may want to save as an object as shown in the example below in
+preparation for building a table}
 }
 \value{
-returns the city and state from the CASPER reports
+returns the city and state from the CASPER reports as a string
 }
 \description{
-This function can be used to pull the City and State off the pdfs, which is required for
-building the table (see \code{get_table_info_old}).
+This function can be used to pull the city and state the facility are located in off
+the pdfs, which is required for building a table (see \code{get_table_info_old()},
+\code{get_1_table_info_2020()}, or \code{get_2_tables_info_2020()} for further usage
+).
 }
 \examples{
-\dontrun{
-raw_text <- pdf_text("yourpdf.pdf")
+#make sure you have these packages installed and loaded
+pacman::p_load(tidyverse, devtools, caspeR, pdftools, roxygen2,zoo, stringr, glue)
+
+raw_text <- pdf_text("R/caspeR_example.pdf")
 
 citystate <- get_city_and_state(raw_text)
-}
+
 }
